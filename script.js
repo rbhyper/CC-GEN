@@ -18,12 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const bin = binInput.value.replace(/[^0-9]/g, '');
             let quantity = parseInt(quantityInput.value, 10) || 15;
-            const maxQuantity = parseInt(quantityInput.getAttribute('max'), 10);
+            const maxQuantity = 500;  // নতুন লিমিট ৫০০
 
-            if (maxQuantity && quantity > maxQuantity) {
-                resultTextarea.value = `Error: Quantity cannot exceed ${maxQuantity}.`;
-                return;
-            }
+if (quantity > maxQuantity) {
+    resultTextarea.value = `Error: Quantity cannot exceed ${maxQuantity}.`;
+    return;
+}
+
+
 
             const monthYearCheckbox = document.querySelector('.input-group-addon input[type="checkbox"]');
             const cvcCheckboxElement = document.querySelector('.cvc-group .input-group-addon input[type="checkbox"]');
@@ -255,3 +257,4 @@ document.addEventListener('click', function (event) {
         menu.classList.remove('show');
     }
 });
+
